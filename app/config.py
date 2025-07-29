@@ -1,10 +1,14 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Settings(BaseSettings):
     BOT_TOKEN: str
     DATABASE_URL: str
     ADMIN_ID: int
 
-    model_config = SettingsConfigDict(env_file=".env")
+    class Config:
+        env_file = ".env"
 
 settings = Settings()

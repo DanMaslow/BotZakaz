@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, BigInteger, String
-from app.models.base import Base  # <== вот это важно
+from sqlalchemy import Column, Integer, BigInteger, String, Boolean
+from app.models.base import Base
 
 class Client(Base):
     __tablename__ = "clients"
@@ -8,3 +8,4 @@ class Client(Base):
     telegram_id = Column(BigInteger, unique=True, nullable=False)
     name = Column(String)
     phone_number = Column(String)
+    admin = Column(Boolean, default=False, nullable=False)
